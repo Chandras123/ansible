@@ -3,7 +3,7 @@
 # Script to create a list of EC2 instances using AWS CLI
 
 # List of instance names to create
-INSTANCES=("mongodb" "redis" "mysql" "rabbitmq" "catalogue" "user" "cart" "shipping" "payment" "dispatch" "frontend")
+INSTANCES=("mongodb")
 
 
 # Common variables
