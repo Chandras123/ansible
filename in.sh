@@ -12,7 +12,7 @@ INSTANCE_TYPE="t2.micro"                      # Replace with your key pair name
 SECURITY_GROUP="sg-02e1cec7f1f2816eb"  # Replace with your security group ID
 region="us-east-1"  # Replace with your desired region
 aws configure set region $region
-INSTANCES=("mongodb" "catalogue" "user" "cart" "shipping" "frontend" "payment" "rabbitmq")
+INSTANCES=( $@) # Accepting instance names as command line arguments
 # writing code for creating all instances present in the list
 # Create instances using the AWS CLI
 #looping through the instances and creating them
