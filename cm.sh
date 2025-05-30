@@ -8,7 +8,7 @@ SECURITY_GROUP="sg-02e1cec7f1f2816eb"  # Replace with your security group ID
 region="us-east-1"  # Replace with your desired region
 aws configure set region $region
 
-INSTANCE_NAMES=( $@) # Accepting instance names as command line arguments
+INSTANCE_NAMES=( "cart" "catalogue" "user" "cart" "shipping" "frontend" "payment" "rabbitmq") # Accepting instance names as command line arguments
 # writing code for creating all instances present in the list
 KEY_NAME="my-key"                      # Replace with your key pair name
 SECURITY_GROUP="sg-0123456789abcdef"   # Replace with your security group ID
