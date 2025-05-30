@@ -9,9 +9,6 @@ region="us-east-1"  # Replace with your desired region
 aws configure set region $region
 
 INSTANCE_NAMES=( "cart" "catalogue" "user" "cart" "shipping" "frontend" "payment" "rabbitmq") # Accepting instance names as command line arguments
-# writing code for creating all instances present in the list
-KEY_NAME="my-key"                      # Replace with your key pair name
-SECURITY_GROUP="sg-0123456789abcdef"   # Replace with your security group ID
 
 for NAME in "${INSTANCE_NAMES[@]}"; do
   echo "Launching instance: $NAME"
@@ -23,6 +20,3 @@ for NAME in "${INSTANCE_NAMES[@]}"; do
     --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value=$NAME}]"
 done
 
-# Wait for instances to be in running state
-aws ec2 wait instance-running --filters "Name=tag:Name,Values=${INSTANCE_NAMES[*]}"
-echo "Instances launched and are now running."
