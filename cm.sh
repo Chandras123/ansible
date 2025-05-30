@@ -8,7 +8,12 @@ SECURITY_GROUP="sg-02e1cec7f1f2816eb"  # Replace with your security group ID
 region="us-east-1"  # Replace with your desired region
 aws configure set region $region
 
-INSTANCE_NAMES=( "cart" "catalogue" "user" "cart" "shipping" "frontend" "payment" "rabbitmq") # Accepting instance names as command line arguments
+if [ "$#" -eq 0 ]; then
+  echo "Usage: $0 instance_name1 [instance_name2 ...]"
+  exit 1
+fi
+
+INSTANCE_NAMES=("$@") # Take instance names from command line arguments
 
 for NAME in "${INSTANCE_NAMES[@]}"; do
   echo "Launching instance: $NAME"
